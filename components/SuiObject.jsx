@@ -19,6 +19,7 @@ const SuiObject = ({ object }) => {
         className=''
       >
         <div className='font-semibold'>{object.objType}</div>
+        <div className='text-slate-600'>{object.objectId}</div>
         {fields && (
           <div>
             {Object.keys(fields).filter((key) => key !== "id").map(

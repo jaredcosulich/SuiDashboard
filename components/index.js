@@ -1,3 +1,4 @@
+export { default as TWButton } from './TWButton'
 export { default as TWCenteredContent } from './TWCenteredContent'
 export { default as TWHorizontal } from './TWHorizontal'
 export { default as TWHorizontalSpread } from './TWHorizontalSpread'
