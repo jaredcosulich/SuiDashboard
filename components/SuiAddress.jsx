@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SuiObject } from '.';
 import { callRpc } from '../lib';
 import store from 'store2';
@@ -9,13 +9,13 @@ const Address = ({ address }) => {
   const [objects, setObjects] = useState();
 
   const onClick = async () => {
-    if (!objects && !showObjects) {
-      const { objects } = await callRpc(`/objects?address=${address}`);
+    if (!showObjects) {
+      const { objects } = await callRpc(`/api/objects?address=${address}`);
       setObjects(objects);
     }
 
     setShowObjects(!showObjects);
-  };
+  }
 
   const saveName = (e) => {
     let name = e.target.value;
@@ -50,6 +50,11 @@ const Address = ({ address }) => {
           {name && (
             <div className='text-xs text-slate-600 mb-3'>
               {address}
+            </div>
+          )}
+          {objects?.length === 0 && (
+            <div className='py-3'>
+              No Objects Found
             </div>
           )}
           {objects && objects.map((object, index) => (
