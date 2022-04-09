@@ -64,7 +64,6 @@ const ConnectWallet = ({ onConnect }) => {
               className='p-3 border-b border-slate-400 cursor-pointer text-xs overflow-hidden'
               onClick={() => setAddress(address)}
             >
-              
               {addressName(address)}
             </div>
           ))}

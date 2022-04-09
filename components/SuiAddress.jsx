@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { SuiObject } from '.';
 import { callRpc } from '../lib';
 import store from 'store2';
@@ -10,7 +10,8 @@ const Address = ({ address }) => {
 
   const onClick = async () => {
     if (!showObjects) {
-      const { objects } = await callRpc(`/api/objects?address=${address}`);
+      // await callRpc('sync_account_state', 'POST', { address })
+      const { objects } = await callRpc(`objects?address=${address}`);
       setObjects(objects);
     }
 

@@ -6,8 +6,10 @@ const SuiObject = ({ object }) => {
 
   useEffect(() => {
     const loadDetails = async () => {
-      const { data: { contents: { fields }} } = await callRpc(`/object_info?objectId=${object.objectId}`);
-      setFields(fields); 
+      // const { data: { contents: { fields }} } = await callRpc(`object_info?objectId=${object.objectId}`);
+      const response = await callRpc(`object_info?objectId=${object.objectId}`);
+      console.log(response)
+      // setFields(fields); 
     }
 
     loadDetails();
